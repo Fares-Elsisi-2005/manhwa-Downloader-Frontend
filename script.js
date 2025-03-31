@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         progressPercentage.textContent = '0%';
 
         // إنشاء EventSource لتتبع التقدم
-        const source = new EventSource("https://manhwa-downloader-backend.railway.app/progress");
+        const source = new EventSource( "https://manhwa-downloader-backend-production.up.railway.app/progress");
 
         source.onmessage = function (event) {
             const data = JSON.parse(event.data);
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('https://manhwa-downloader-backend.railway.app/download', {
+            const response = await fetch('https://manhwa-downloader-backend-production.up.railway.app/download', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
