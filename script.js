@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Download process completed");
       } catch (error) {
         console.log(`Error during download: ${error.message}`);
-        alert("Error: " + error.message);
+        alert("The manhwa could not be available, please check WebToon.com");
       } finally {
         resetUI();
       }
