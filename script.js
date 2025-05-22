@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchImages(manhwaName, episodeNumber) {
     console.log(`Fetching images for ${manhwaName}, Episode ${episodeNumber}`);
-    const response = await fetch('http://localhost:3000/download', {
+    const response = await fetch('https://manhwa-downloader-backend-production.up.railway.app/download', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ mangaName: manhwaName, episodeNum: episodeNumber }),
@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     downloadBtn.innerText = "Downloading...";
     updateProgress(0);
 
-    const source = new EventSource("http://localhost:3000/progress");
+    const source = new EventSource("https://manhwa-downloader-backend-production.up.railway.app/progress");
     source.onmessage = event => {
       const data = JSON.parse(event.data);
       updateProgress(data.progress); // الـ progress من الـ backend (0-50%)
